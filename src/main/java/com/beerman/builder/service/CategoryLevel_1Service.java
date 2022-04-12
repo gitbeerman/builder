@@ -1,5 +1,6 @@
 package com.beerman.builder.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,7 +61,11 @@ public class CategoryLevel_1Service
 
 
 	public List<CategoryLevel_1> getAll()
-	{	return categoryLevel_1Repository.findAll();
+	{	List<CategoryLevel_1> parentCategories = categoryLevel_1Repository.findAll();
+		if	(null == parentCategories)
+		{	parentCategories = Collections.emptyList();
+		}
+		return parentCategories;
 	}	//getAll
 
 

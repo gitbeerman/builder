@@ -34,6 +34,6 @@ public class CategoryLevel_1
 
 	@Override
 	public String toString()
-	{	return "["+ description + "]";
+	{	return description;
 	}	//toString
 }	//CategoryLevel_1

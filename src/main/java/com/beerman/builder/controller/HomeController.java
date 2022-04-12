@@ -1,5 +1,6 @@
 package com.beerman.builder.controller;
 
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import com.beerman.builder.entity.CategoryLevel_3;
 import com.beerman.builder.service.CategoryLevel_1Service;
 import com.beerman.builder.service.CategoryLevel_2Service;
 import com.beerman.builder.service.CategoryLevel_3Service;
+import com.beerman.builder.utility.CategoryUtil;
 
 
 
@@ -104,4 +106,13 @@ public class HomeController
 		}
 		return categoryLevel_3Service.findAllByParentID(subObject.get().getID());
 	}	//getParentCategory
+
+
+
+	@RequestMapping(value="/getProducts", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Hashtable<CategoryLevel_1, Hashtable<CategoryLevel_2, List<CategoryLevel_3>>> getCategories()
+	{	return CategoryUtil.mapSubCategoriesToParentCategory(	categoryLevel_1Service,
+														categoryLevel_2Service,
+														categoryLevel_3Service);
+	}	//getProducts
 }	//HomeController

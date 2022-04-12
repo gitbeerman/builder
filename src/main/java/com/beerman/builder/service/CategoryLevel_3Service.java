@@ -1,5 +1,6 @@
 package com.beerman.builder.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,7 +78,11 @@ public class CategoryLevel_3Service
 
 
 	public List<CategoryLevel_3> findAllByParentID(long parentID)
-	{	return categoryLevel_3Repository.findByParentCategoryID(parentID);
+	{	List<CategoryLevel_3> products = categoryLevel_3Repository.findByParentCategoryID(parentID);
+		if	(null == products)
+		{	products = Collections.emptyList();
+		}
+		return products;
 	}	//findByParentID
 
 
