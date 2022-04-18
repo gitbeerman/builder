@@ -83,7 +83,12 @@ public class CategoryLevel_3Service
 		{	products = Collections.emptyList();
 		}
 		return products;
-	}	//findByParentID
+	}
+	
+	
+	public List<CategoryLevel_3> getAll()
+	{	return categoryLevel_3Repository.findAll();
+	}	///findByParentID
 
 
 }	//CategoryLevel_3Service
