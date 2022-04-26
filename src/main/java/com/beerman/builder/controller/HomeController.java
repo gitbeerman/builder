@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * Home Controller
  */
+@CrossOrigin
 @RestController
 public class HomeController
 {	@Autowired
@@ -58,7 +60,7 @@ public class HomeController
 	 * @return 
 	 * @throws JsonProcessingException 
 	 */
-	@RequestMapping(value="/getAllProducts", method = RequestMethod.GET)
+	@RequestMapping(value="/getMenu", method = RequestMethod.GET)
 	public String postCategoryLevel_1() throws JsonProcessingException
 	{	
 		JsonMapper mapper = new JsonMapper();
